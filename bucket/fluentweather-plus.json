@@ -1,0 +1,21 @@
+{
+  "version": "55",
+  "description": "Fluent-style weather app for Windows with a tray helper (fork of FluentWeather).",
+  "homepage": "https://github.com/Duedilly108/FluentWeather-Plus",
+  "license": "GPL-3.0-only",
+  "url": "https://github.com/Duedilly108/FluentWeather-Plus/releases/download/v55/FluentWeather-Plus-Setup-v55.exe",
+  "hash": "f0f83da10aa080626611837a565c8a875cf43de75e1918fa21efef66d3a693fc",
+  "installer": {
+    "args": [
+      "/S"
+    ]
+  },
+  "uninstaller": {
+    "script": "if ($cmd -ne 'update') { $un = Join-Path $env:LOCALAPPDATA 'Programs\\FluentWeather\\FluentWeather-Uninstall.exe'; if (Test-Path -LiteralPath $un) { Start-Process -FilePath $un -ArgumentList '/S' -Wait } }"
+  },
+  "notes": "Setup adds a signing certificate to Trusted People of this PC. Windows asks for administrator approval once. Run Scoop from an elevated prompt to avoid the prompt. Setup does not start the app. Start it from the Start menu or sign in again.",
+  "checkver": "github",
+  "autoupdate": {
+    "url": "https://github.com/Duedilly108/FluentWeather-Plus/releases/download/v$version/FluentWeather-Plus-Setup-v$version.exe"
+  }
+}
